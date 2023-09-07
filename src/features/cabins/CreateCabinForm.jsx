@@ -21,6 +21,8 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 	const { register, handleSubmit, reset, getValues, formState } = useForm({
 		defaultValues: isEditSession ? editValues : {},
 	});
+
+	// z useForm z możemy z obiektu tego hooka formState wyciągnąć errors i zamieścić na stronie
 	const { errors } = formState;
 
 	function onSubmit(data) {
@@ -107,7 +109,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 					})}
 				/>
 			</FormRow>
-
+			{/* getValues to funkcja która pochodzi z react-form nie musimy jej pisać */}
 			<FormRow label='Description for website' error={errors?.description?.message}>
 				<Textarea
 					type='number'
